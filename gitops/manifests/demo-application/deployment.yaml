@@ -14,8 +14,8 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/part-of: demoapp
-        app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: 1.1.0
+        app.kubernetes.io/name: demoapp
+        app.kubernetes.io/version: v1
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
         keptn.sh/post-deployment-evaluations: demoapp-healty-check

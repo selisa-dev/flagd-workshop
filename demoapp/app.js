@@ -1,24 +1,3 @@
-/**
- * express code
- */
-
-const express = require('express')
-const app = express()
-const port = 3000
-
-/**
- * health endpoint
- */
-
-app.get ("/healthz", async(req, res) => {
-    res.send("All good")
-})
-
-/**
- * OpenTelemetry Code
- */
-const { OpenTelemetryHook } = require('@openfeature/open-telemetry-hook');
-
 /*instrumentation.js*/
 const opentelemetry = require("@opentelemetry/sdk-node");
 const {getNodeAutoInstrumentations,} = require("@opentelemetry/auto-instrumentations-node");
@@ -43,6 +22,27 @@ const sdk = new opentelemetry.NodeSDK({
 sdk.start();
 
 /**
+ * express code
+ */
+
+const express = require('express')
+const app = express()
+const port = 3000
+
+/**
+ * health endpoint
+ */
+
+app.get ("/healthz", async(req, res) => {
+    res.send("All good")
+})
+
+/**
+ * OpenTelemetry Code
+ */
+const { OpenTelemetryHook } = require('@openfeature/open-telemetry-hook');
+
+/**
  * Minimal application code
  */
 
@@ -57,3 +57,4 @@ app.get('/', async(req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
